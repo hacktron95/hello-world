@@ -20,4 +20,4 @@ spec:
         - containerPort: 80
         - containerPort: 443
 """
-   }
+}
