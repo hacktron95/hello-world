@@ -11,10 +11,10 @@ steps:
   - name: es
     image: alpine
     commands:
-      - echo $test
+      - echo $TEST
       - echo mundo
     environment:
-      test:
+      TEST:
         from_secret: test
 
 ---
