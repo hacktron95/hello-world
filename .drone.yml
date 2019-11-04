@@ -2,15 +2,28 @@ kind: pipeline
 name: greeting
 
 steps:
-- name: en
-  image: alpine
-  commands:
-  - echo hello
-  - echo world
+  - name: en
+    image: alpine
+    commands:
+      - echo hello
+      - echo world
 
-- name: es
-  image: alpine
-  commands:
-  - echo hola
-  - echo mundo
+  - name: es
+    image: alpine
+    commands:
+      - echo hola
+      - echo mundo
 
+  - name: publish
+    image: plugins/docker
+    settings:
+      repo: drone/drone
+      tags: latest
+      username:
+        from_secret: test
+---
+kind: secret
+name: test
+get:
+  path: secret/data/tester
+  name: tester
