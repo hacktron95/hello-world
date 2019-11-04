@@ -11,16 +11,12 @@ steps:
   - name: es
     image: alpine
     commands:
-      - echo hola
+      - echo $test
       - echo mundo
-
-  - name: publish
-    image: plugins/docker
-    settings:
-      repo: drone/drone
-      tags: latest
-      username:
+    environment:
+      test:
         from_secret: test
+
 ---
 kind: secret
 name: test
