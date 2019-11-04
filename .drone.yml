@@ -23,5 +23,5 @@ steps:
 kind: secret
 name: testt
 get:
-  path: secret/tester
+  path: secret/data/tester
   name: tester
