@@ -16,12 +16,12 @@ steps:
       - echo $VALUE
     environment:
       TEST:
-        from_secret: test
+        from_secret: testt
       VALUE: HERE_IS_A_VALUE
 
 ---
 kind: secret
-name: test
+name: testt
 get:
   path: secret/tester
   name: tester
