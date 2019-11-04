@@ -13,9 +13,11 @@ steps:
     commands:
       - echo $TEST
       - echo mundo
+      - echo $VALUE
     environment:
       TEST:
         from_secret: test
+      VALUE: HERE_IS_A_VALUE
 
 ---
 kind: secret
