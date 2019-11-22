@@ -11,13 +11,13 @@ steps:
   - name: es
     image: alpine
     commands:
-      - echo $TEST
+      - export TEST_VALUE=$TEST
+      - echo $TEST_VALUE
       - echo mundo
       - echo $VALUE
     environment:
       TEST:
         from_secret: testt
-      VALUE: HERE_IS_A_VALUE
 
 ---
 kind: secret
