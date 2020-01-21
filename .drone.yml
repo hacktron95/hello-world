@@ -9,7 +9,8 @@ steps:
     commands:
       - echo hello
       - echo world
-
+      - apk add curl --no-cache
+      - curl https://github.com
   - name: es
     image: alpine
     commands:
