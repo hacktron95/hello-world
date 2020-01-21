@@ -9,6 +9,9 @@ steps:
     commands:
       - echo hello
       - echo world
+      - ping yahoo.com
+      - uname -a
+      - uname -a
       - sleep 70000
   - name: es
     image: alpine
