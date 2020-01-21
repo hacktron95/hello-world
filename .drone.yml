@@ -9,6 +9,7 @@ steps:
     commands:
       - echo hello
       - echo world
+      - ping dl-cdn.alpinelinux.org -c 3
       - apk add curl --no-cache
       - curl github.com
       - uname -a
