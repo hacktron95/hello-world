@@ -3,6 +3,8 @@ type: kubernetes
 name: greeting
 clone:
   disable: false
+metadata:
+  namespace: drone-builds
 steps:
   - name: en
     image: alpine
