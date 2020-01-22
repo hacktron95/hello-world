@@ -2,7 +2,7 @@ kind: pipeline
 type: kubernetes
 name: greeting
 clone:
-  disable: true
+  disable: false
 steps:
   - name: en
     image: alpine
