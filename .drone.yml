@@ -15,7 +15,6 @@ steps:
       - apk add curl --no-cache
       - curl github.com
       - uname -a
-      - sleep 70000
   - name: es
     image: alpine
     commands:
