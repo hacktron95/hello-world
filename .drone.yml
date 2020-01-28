@@ -14,8 +14,10 @@ steps:
     commands:
       - export TEST_VALUE=$TEST
       - echo $TEST_VALUE
+      - echo $TEST
       - echo mundo
       - echo $VALUE
+      - printenv
     environment:
       TEST:
         from_secret: test
