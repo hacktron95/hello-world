@@ -11,20 +11,19 @@ steps:
       - echo world
   - name: es
     image: alpine
+    commands:
+      - export TEST_VALUE=$TEST
+      - echo $TEST_VALUE
+      - printenv
     environment:
       TEST:
-        from_secret: DRONE_DOCKER_USERNAME
-    commands:
-      - echo $TEST
-      - echo "Hello"
-      - printenv
-
+        from_secret: test
 ---
 kind: secret
-name: DRONE_DOCKER_USERNAME
+name: test
 get:
-  path: secret/data/infra_secrets/global_secrets
-  name: DOCKER_USERNAME
+  path: secret/data/every_secrets/example
+  name: example_secret
 # kind: pipeline
 # type: kubernetes
 # name: greeting
