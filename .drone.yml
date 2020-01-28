@@ -1,20 +1,12 @@
 kind: pipeline
 type: kubernetes
 name: greeting
-clone:
-  disable: false
-metadata:
-  namespace: drone-builds
 steps:
   - name: en
     image: alpine
     commands:
       - echo hello
       - echo world
-      - ping dl-cdn.alpinelinux.org -c 3
-      - apk add curl --no-cache
-      - curl github.com
-      - uname -a
   - name: es
     image: alpine
     commands:
@@ -22,3 +14,36 @@ steps:
       - echo $TEST_VALUE
       - echo mundo
       - echo $VALUE
+    environment:
+      TEST:
+        from_secret: test
+---
+kind: secret
+name: test
+get:
+  path: secret/data/every_secrets/example
+  name: example_secret
+# kind: pipeline
+# type: kubernetes
+# name: greeting
+# clone:
+#   disable: false
+# metadata:
+#   namespace: drone-builds
+# steps:
+#   - name: en
+#     image: alpine
+#     commands:
+#       - echo hello
+#       - echo world
+#       - ping dl-cdn.alpinelinux.org -c 3
+#       - apk add curl --no-cache
+#       - curl github.com
+#       - uname -a
+#   - name: es
+#     image: alpine
+#     commands:
+#       - export TEST_VALUE=$TEST
+#       - echo $TEST_VALUE
+#       - echo mundo
+#       - echo $VALUE
